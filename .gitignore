@@ -1,0 +1,5 @@
+/mnt/airflow/logs*
+/services/.env
+/services/dags
+/services/logs
+/services/plugins

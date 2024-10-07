@@ -147,18 +147,18 @@ Em um ambiente de produção, é fundamental implementar mecanismos eficazes de 
 - Dashboards de Monitoramento: 
     Uso de ferramentas como Grafana para criar dashboards que exibam o desempenho e o status das DAGs, proporcionando visibilidade contínua do pipeline.
 
-No projeto atual como medida de monitoramento, criou-se uma camada de serviços para realizar telemetria e monitoramento de recursos da infraestrutura utilizados pelo sistema. Esses serviços são:
+- No projeto atual como medida de monitoramento, criou-se uma camada de serviços para realizar telemetria e monitoramento de recursos da infraestrutura utilizados pelo sistema. Esses serviços são:
 	- Prometheus: Serviço usado para coleta de logs e métricas utilizadas na telemetria e monitoramento;
 	- Grafana: Serviço usado para visualização de logs e métricas coletadas pelo Prometheus, provendo dashboards para monitoramento;
 	- Prometheus Agents e Exporters: Serviços responsáveis por coletar métricas de enviar para o Prometheus. Os agentes utilizados nesse trabalho foram:
 		- Node exporter: Agente para coletar dados de telemetria do nó em específico.
 		- Cadvisor: Agente para coletar dados de telemetria do docker.
 
-Assim, após implementado a parte de monitoramento, tem-se:
+- Assim, após implementado a parte de monitoramento, tem-se:
 	- Os exporters coletam essas métricas e as enviam para o Prometheus.
 	- O Grafana consome essas métricas do Prometheus e as exibe em dashboards.
 
-Nota:
+- Nota:
 	- Na parte de execução do sistema, será informado como implementar a solução no ambiente e visualizar os Dashboards.
 
 - Otimização de Recursos: 
@@ -255,14 +255,12 @@ No caso do processo executado com Spark, sua interface também pode ser acessada
 ### Implementando a parte de monitoramento
 
 Para que seja possível visualizar as metricas do sistema e dos contêiners acima, é necessário a implementação do nosso sistema de monitoramento fazendo uso do Prometheus e Grafana. Para isso é necessário seguir os passos abaixo:
-	Executar o seguinte comando:
- 	- 
+  - Executar o seguinte comando:
 	  ```sh
 	  make deploy_monitoring
 
 Com isso os serviços necessário para o monitoramento serão instanciados, é possível observar os status dos serviços executando:
-	Executar o seguinte comando:
-  	- 
+  - Executar o seguinte comando:
 	  ```sh
 	  make watch_monitoring
 

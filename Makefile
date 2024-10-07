@@ -28,3 +28,11 @@ stop_spark:
 watch_spark:
 	watch docker-compose -f services/spark_services.yaml ps
 
+deploy_monitoring:
+	docker compose -f services/monitoring_services.yml up -d
+ 
+stop_monitoring:
+	docker compose -f services/monitoring_services.yml down
+ 
+watch_monitoring:
+	watch docker compose -f services/monitoring_services.yml ps

@@ -182,6 +182,7 @@ Para execução completa do projeto, seguir os passos descritos abaixo:
     git checkout main
 
   - Executar os comandos abaixo, para que o Airflow tenha permissão nos diretórios em questão e também tenha permissão para provisionar contêiners Docker:
+  -		
 	```sh
 	sudo chmod -R 777 ./mnt/airflow/logs
   -    

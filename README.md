@@ -78,13 +78,13 @@ A primeira etapa para o desenvolvimento do projeto foi o desenho de como seria a
 - linguagem:
     Usou-se das linguagens python e pyspark para o desenvolvimento do case. Ambas as linguagens oferecem recursos importantes para acesso a API's e manipulação de dados, sendo ambas compatíveis com o airflow.
 
-<span style="color:red">
+<p style="color:red;">
     OBSERVAÇÃO IMPORTANTE NO DESENVOLVIMENTO DO PROJETO
 
   Ao realizar o teste, observou-se que os dados apresentavam baixa volumetria, apenas 50 linhas, o que também permitiria o uso do pandas para realizar as transformações necessárias, sem que fosse preciso utilizar de uma ferramente de processamento distribuído como Spark. Durante o desenvolvimento pode-se notar vantagens e desvantagens na utilização de ambas as linguagens. Para manipulação de baixo volume de dados, bibliotecas como o pandas são muito satisfatórias e atendem perfeitamente os requisitos necessários, como tempo de processamento, libs, recursos, dentre outros, poŕem quando falamos de escrita e leitura de dados otimizados, inseridos em um datalake, como é o caso do projeto, onde os dados são inseridos em um Bucket S3, são necessárias maiores etapas para se obter o mesmo resultado comparadas ao Spark. O spark, por sua vez, oferece maior controle de recursos, ferramentas importantes como lazy evaluation, catalyst, processamento distribuído, dentre outros aspectos importantes, porém oferece maior complexidade em se provisionar o ambiente necessário para sua execução, o que pode gerar multiplos conflitos e falta de depedências, contudo após provisionado, oferece grande facilidade para transformações de dados, leitura e escrita de dados otimizados, não sendo necessárias tantas etapas.
 
   Realizou-se o processo em uma DAG fazendo uso da biblioteca pandas e em outra fazendo uso do Spark, assim é possível notar as diferenças entre os procesos. Embora funções como "to_pandas" e "spark.createDataFrame "pudessem ser utilizadas para combinar as soluções, optou-se por manter as abordagens separadas devido aos fatores já mencionados.
-</span>
+</p>
 
 - Containerização: 
     Docker segue sendo um escolha interessante quando se trata de containers, já que é a maior ferramenta utilizada e facilmente integrada em diversos projetos, permitindo a modularização, garantindo a portabilidade da aplicação, criando um pacote com sua dependências, permitindo que seja executada tanto localmente quanto em ambientes de nuvem.

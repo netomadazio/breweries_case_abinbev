@@ -309,8 +309,8 @@ Atenciosamente,
 ### Autor
 
 Irineu Madazio Neto,
-Engenheiro de Controle e Automação
-Sênior Data Engineer
+Engenheiro de Controle e Automação,
+Sênior Data Engineer,
 apaixonado pela área de Engenharia de Dados.
 
 [![Linkedin Badge](https://img.shields.io/badge/-Irineu-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/irineu-madazio-neto/)](https://www.linkedin.com/in/irineu-madazio-neto/) 

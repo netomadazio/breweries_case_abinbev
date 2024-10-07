@@ -227,12 +227,12 @@ Após verificar que os ambientes estão em execução, você pode acessar a inte
 
 Para que as DAGs funcionem corretamente, é necessário criar uma "connection" no Airflow, garantindo o acesso às credenciais do bucket S3 na AWS. Para isso, siga os seguintes passos:
 
-1 - Clique em "Admin" na parte superior da interface do Airflow.
-2 - Selecione "Connections".
-3 - No campo "Conn Id", insira "aws_access_abinbev".
-4 - No campo "Conn Type", procure por "S3".
-5 - Preencha os campos "Login" e "Password" com a access key e a secret key da AWS.
-6 - Clique em "Salvar".
+- 1 - Clique em "Admin" na parte superior da interface do Airflow.
+- 2 - Selecione "Connections".
+- 3 - No campo "Conn Id", insira "aws_access_abinbev".
+- 4 - No campo "Conn Type", procure por "S3".
+- 5 - Preencha os campos "Login" e "Password" com a access key e a secret key da AWS.
+- 6 - Clique em "Salvar".
 Com a conexão configurada, as DAGs já podem ser executadas no ambiente do Airflow.
 
 No caso do processo executado com Spark, sua interface também pode ser acessada para visualizar os jobs Spark em andamento e os recursos alocados, através do endereço "http://localhost:8090/".

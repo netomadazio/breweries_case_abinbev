@@ -170,31 +170,29 @@ Great Expectations - em um caso real, poderia-se implementar uma validação em 
 Para execução completa do projeto, seguir os passos descritos abaixo:
 
   - Clonar o repositório do projeto:
-
-    ```sh
-  git clone [<repositório>](https://github.com/netomadazio/breweries_case_abinbev.git)
+	```sh
+	git clone https://github.com/netomadazio/breweries_case_abinbev.git
 
   - Verificação da branch:
-    ```sh
-  git status
+	```sh
+	git status
 
   - Caso não encontrar-se na branch main, realizar a mudança para branch principal:
     ```sh
     git checkout main
 
   - Executar os comandos abaixo, para que o Airflow tenha permissão nos diretórios em questão e também tenha permissão para provisionar contêiners Docker:
-
-    ```sh
-    sudo chmod -R 777 ./mnt/airflow/logs
-    
-    ```sh
-    sudo chmod -R 777 ./mnt/airflow/dags
-    
-    ```sh
-    sudo chmod -R 777 ./mnt/airflow/plugins
-
-    ```sh
-    sudo chmod -R 777 /var/run/docker.sock
+	```sh
+	sudo chmod -R 777 ./mnt/airflow/logs
+  -    
+	```sh
+	sudo chmod -R 777 ./mnt/airflow/dags
+  -  
+	```sh
+	sudo chmod -R 777 ./mnt/airflow/plugins
+  -	
+	```sh
+	sudo chmod -R 777 /var/run/docker.sock
 
 Após os passos anteriores é necessário a criação das imagens utilizadas para a execução do projeto.
 

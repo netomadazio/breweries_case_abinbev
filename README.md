@@ -15,6 +15,7 @@
 * [Arquitetura](#arquitetura)
 * [Resolução](#resolução)
 * [Pontos de melhorias](#pontos-de-melhorias)
+* [Monitoring/Alerting](#Monitoring/Alerting)
 * [Execução do projeto](#execução-do-projeto)
 * [Conclusão](#conclusão)
 * [Autor](#autor)
@@ -146,6 +147,20 @@ Em um ambiente de produção, é fundamental implementar mecanismos eficazes de 
 - Dashboards de Monitoramento: 
     Uso de ferramentas como Grafana para criar dashboards que exibam o desempenho e o status das DAGs, proporcionando visibilidade contínua do pipeline.
 
+No projeto atual como medida de monitoramento, criou-se uma camada de serviços para realizar telemetria e monitoramento de recursos da infraestrutura utilizados pelo sistema. Esses serviços são:
+	- Prometheus: Serviço usado para coleta de logs e métricas utilizadas na telemetria e monitoramento;
+	- Grafana: Serviço usado para visualização de logs e métricas coletadas pelo Prometheus, provendo dashboards para monitoramento;
+	- Prometheus Agents e Exporters: Serviços responsáveis por coletar métricas de enviar para o Prometheus. Os agentes utilizados nesse trabalho foram:
+		- Node exporter: Agente para coletar dados de telemetria do nó em específico.
+		- Cadvisor: Agente para coletar dados de telemetria do docker.
+
+Assim, após implementado a parte de monitoramento, tem-se:
+	- Os exporters coletam essas métricas e as enviam para o Prometheus.
+	- O Grafana consome essas métricas do Prometheus e as exibe em dashboards.
+
+Nota:
+	- Na parte de execução do sistema, será informado como implementar a solução no ambiente e visualizar os Dashboards.
+
 - Otimização de Recursos: 
     Em ambientes como Kubernetes, ajustar o executor_config nas DAGs do Airflow para alocar recursos de maneira eficiente, evitando tanto o uso excessivo quanto o subdimensionamento de recursos, o que pode resultar em custos desnecessários ou falhas frequentes.
 
@@ -237,6 +252,41 @@ Com a conexão configurada, as DAGs já podem ser executadas no ambiente do Airf
 
 No caso do processo executado com Spark, sua interface também pode ser acessada para visualizar os jobs Spark em andamento e os recursos alocados, através do endereço "http://localhost:8090/".
 
+### Implementando a parte de monitoramento
+
+Para que seja possível visualizar as metricas do sistema e dos contêiners acima, é necessário a implementação do nosso sistema de monitoramento fazendo uso do Prometheus e Grafana. Para isso é necessário seguir os passos abaixo:
+	Executar o seguinte comando:
+ 	- 
+	  ```sh
+	  make deploy_monitoring
+
+Com isso os serviços necessário para o monitoramento serão instanciados, é possível observar os status dos serviços executando:
+	Executar o seguinte comando:
+  	- 
+	  ```sh
+	  make watch_monitoring
+
+Após instanciado, é possível então realizar a criação dos Dashboards no grafana.
+
+### Adicionando dashboards ao Grafana
+
+A interface do Grafana pode ser acessada no navegador, digitando o endereço http://localhost:3000. O usuário e senha padrão são admin e admin, respectivamente.
+
+Para adicionar o dashboard do Node Exporter e do Docker, clique em "Dashboards" no lado esquerdo da tela, e depois em Import. No campo Grafana.com Dashboard digite o número 1860 e clique em Load. Em seguida, selecione o Prometheus como fonte de dados e clique em Import.
+
+Obs: Caso não tenha disponível o Prometheus como Data Source, criar a connection e no campo URL do Prometheus passar o endereço "http://prometheus:9090", isso habilitará a conexão do Grafana com o Prometheus, assim será possível consumir as metricas e criar o Dashboard.
+
+Para adicionar o dashboard referente ao Docker, repita o processo usando o ID 193 no campo Grafana.com Dashboard.
+
+Após realizado os passos acima, será possível visualizar as métricas de sistema e contêiners Docker como as imagens demonstradas abaixo.
+
+System Monitoring
+![dashboard_system_monitoring](https://github.com/user-attachments/assets/81ace25b-73f3-49da-b4b4-321c2af7a276)
+
+Docker Monitoring
+![dashboard_docker_monitoring](https://github.com/user-attachments/assets/b171da22-af9b-4d2d-95d5-e3034618be42)
+
+
 Finalizadas as execuções, pode-se desativar os ambientes através dos comandos abaixo:
   - Desativando ambiente Airflow:
     ```sh
@@ -244,6 +294,9 @@ Finalizadas as execuções, pode-se desativar os ambientes através dos comandos
   - Desativando ambiente Spark:
     ```sh
     make stop_spark
+  - Desativando ambiente de monitoramento:
+    ```sh
+    make stop_monitoring
 
 Processo finalizado.
 

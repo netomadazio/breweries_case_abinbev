@@ -1,0 +1,12 @@
+requests
+pandas
+boto3
+psycopg2-binary
+jinja2<3.1.0
+lxml
+python-decouple
+apache-airflow-providers-apache-spark
+apache-airflow-providers-docker
+apache-airflow-providers-celery>=3.3.0
+pyOpenSSL>=22.0.0
+cryptography>=38.0.0

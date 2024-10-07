@@ -15,7 +15,7 @@
 * [Arquitetura](#arquitetura)
 * [Resolução](#resolução)
 * [Pontos de melhorias](#pontos-de-melhorias)
-* [Monitoring/Alerting](#Monitoring/Alerting)
+* [Monitoring-Alerting](#Monitoring-Alerting)
 * [Execução do projeto](#execução-do-projeto)
 * [Conclusão](#conclusão)
 * [Autor](#autor)
@@ -138,7 +138,7 @@ Dentro das tasks aplicou-se em código, validações, tratativas para erros e ex
 
 Obs: O histórico dos dados é mantido somente na camada bronze, já as camadas silver e gold foram criadas de forma a fornecer uma visualização diárias desses dados, ou seja, irão disponibilizar somente os dados extraídos no dia da execução. Em um processo real, poderiam-se avaliar outros cenários onde seria possível também trazer uma visualização com histórico também nessas camadas, ou mesmo com um intervalo de dados melhor definido, como por exemplo os dados dos últimos 2 anos.
 
-## Monitoring/Alerting:
+## Monitoring-Alerting:
 Em um ambiente de produção, é fundamental implementar mecanismos eficazes de monitoramento e alertas para garantir a estabilidade, integridade, robustez e eficiência do pipeline. Abaixo estão algumas práticas que podem ser eficazes:
 
 - Alertas em Tempo Real: 

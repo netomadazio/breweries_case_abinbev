@@ -30,7 +30,7 @@ Este projeto visa a resolução de um case proposto pela AB InBev como parte de 
 - Camada Silver:
     A partir dos dados brutos da camada bronze, são aplicadas as transformações necessárias para garantir a qualidade e o formato apropriado. Os dados transformados são então gravados na camada silver, particionados por localidade.
 
--Camada Gold:
+- Camada Gold:
     Por fim, é criada uma view na camada gold contendo informações agregadas sobre o número de cervejarias, categorizadas por tipo e localidade. Esses dados são salvos em formato otimizado.
 
 ### Formatos de Armazenamento
